@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Annotations">
+    <test name="Run Class Annotations">
+        <classes>
+            <class name="com.testng.ClassOne">
+                <methods>
+                    <include name="test1"></include>
+                </methods>
+            </class>
+            <class name="com.testng.ClassTwo">
+                <methods>
+                    <exclude name="test4"></exclude>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+</suite> 
