@@ -1,42 +1,48 @@
-package com.testng;
+package com.lambdatest;
 
+import com.lambdatest.pages.BasePage;
+import com.lambdatest.pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
 
-public class TakingScreenshotOfFailedCases {
+public class BaseTests {
 
-    WebDriver driver;
+    private WebDriver driver;
+    protected BasePage basePage;
+    protected HomePage homePage;
+    private final String Aut_URL = "https://www.lambdatest.com/selenium-playground/";
 
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
-        WebDriverManager.chromiumdriver().setup();
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.lambdatest.com/selenium-playground/");
 
     }
 
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
 
-    @Test
-    public void testCheckboxDemo() {
-        driver.findElement(By.linkText("Simple Form Demo")).click();
-        driver.findElement(By.xpath("//p[text()='Enter Message']//following-sibling::input")).sendKeys("Learning is important!");
-        driver.findElement(By.cssSelector("#showInput")).click();
-        String actualMessage = driver.findElement(By.id("message")).getText();
-        Assert.assertEquals(actualMessage, "Learning is important!!", "Not Matching");
+    @BeforeMethod
+    public void loadApplication() {
+        driver.get(Aut_URL);
+        basePage = new BasePage();
+        basePage.setDriver(driver);
+        homePage = new HomePage();
     }
 
     @AfterMethod
@@ -53,6 +59,4 @@ public class TakingScreenshotOfFailedCases {
             }
         }
     }
-
-
 }

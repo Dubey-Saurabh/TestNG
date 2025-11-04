@@ -26,13 +26,13 @@ public class AssertionsTest {
         driver.quit();
     }
 
-    @Test
+    @Test (priority = 0)
     public void testTableSortAndSearch() {
         driver.findElement(By.linkText("Table Sort & Search")).click();
         driver.findElement(By.xpath("//div[@id='example_filter']//input[@type='search']")).sendKeys("C. Turner");
     }
 
-    @Test
+    @Test(priority = 1)
     public void testBootstrapDatePicker() {
         driver.findElement(By.linkText("Bootstrap Date Picker")).click();
         driver.findElement(By.id("birthday")).sendKeys("01/01/1993");
