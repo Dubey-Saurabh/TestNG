@@ -1,4 +1,4 @@
-package com.testng;
+package com.TestNG;
 
 import com.google.common.base.Function;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -46,7 +46,11 @@ public class DynamicWaits {
         driver.findElement(By.linkText("JQuery Download Progress bars")).click();
         driver.findElement(By.cssSelector("#downloadButton")).click();
 
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofMillis(100)).ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofMillis(100))
+                .ignoring(NoSuchElementException.class);
+
         wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
                 WebElement progressBar = driver.findElement(By.xpath("//div[@id='dialog']/div[@class='progress-label']"));

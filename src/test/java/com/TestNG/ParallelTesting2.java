@@ -1,4 +1,4 @@
-package com.testng;
+package com.TestNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +19,7 @@ public class ParallelTesting2 {
 
     @AfterMethod
     public void afterMethod() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         driver.quit();
     }
 

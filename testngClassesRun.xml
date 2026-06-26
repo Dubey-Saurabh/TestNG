@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Annotations">
-    <test name="Run Class Annotations">
+<suite name="TestNG">
+    <test name="Run Class One and Two">
         <classes>
-            <class name="com.testng.ClassOne"></class>
-            <class name="com.testng.ClassTwo"></class>
+            <class name="com.TestNG.ClassOne"></class>
+            <class name="com.TestNG.ClassTwo"></class>
         </classes>
-
     </test>
 </suite> 

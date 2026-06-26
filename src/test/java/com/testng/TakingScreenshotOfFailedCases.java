@@ -26,9 +26,7 @@ public class TakingScreenshotOfFailedCases {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.lambdatest.com/selenium-playground/");
-
     }
-
 
     @Test
     public void testCheckboxDemo() {
@@ -44,7 +42,7 @@ public class TakingScreenshotOfFailedCases {
         if (ITestResult.FAILURE == testResult.getStatus()) {
             TakesScreenshot screenshot = (TakesScreenshot) driver;
             File source = screenshot.getScreenshotAs(OutputType.FILE);
-            File destination = new File(System.getProperty("user.dir") + "\\screenshots\\" + testResult.getName() + ".png");
+                File destination = new File(System.getProperty("user.dir") + "\\screenshots\\" + testResult.getName() + ".png");
 
             try {
                 FileUtils.copyFile(source, destination);

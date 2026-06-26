@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Annotations">
-    <test name="Run Class Annotations">
+<suite name="TestNG">
+    <test name="Run Class One and Two but with methods">
         <classes>
-            <class name="com.testng.ClassOne">
+            <class name="com.TestNG.ClassOne">
                 <methods>
                     <include name="test1"></include>
                 </methods>
             </class>
-            <class name="com.testng.ClassTwo">
+            <class name="com.TestNG.ClassTwo">
                 <methods>
                     <exclude name="test4"></exclude>
                 </methods>
             </class>
         </classes>
-
     </test>
 </suite> 

@@ -1,4 +1,4 @@
-package com.testng;
+package com.TestNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class AssertionsTest {
+public class AnnotationsTest {
 
     WebDriver driver;
 

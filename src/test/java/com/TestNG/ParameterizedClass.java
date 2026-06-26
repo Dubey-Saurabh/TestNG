@@ -1,4 +1,4 @@
-package com.testng;
+package com.TestNG;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ public class ParameterizedClass {
     @Parameters({"URL"})
     @BeforeClass
     public void setUp(String url) {
-        WebDriverManager.chromiumdriver().setup();
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(url);
